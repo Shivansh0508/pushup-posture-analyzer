@@ -1,4 +1,4 @@
-# 💪 Pushup Posture Correction Tool
+#  Pushup Posture Correction Tool
 
 A real-time AI-powered pushup form analyzer using YOLOv8 pose estimation. It scores your posture live across four body segments and gives a detailed rep-by-rep breakdown after every set.
 
@@ -13,10 +13,10 @@ A real-time AI-powered pushup form analyzer using YOLOv8 pose estimation. It sco
 ## Features
 
 - **Real-time posture scoring** across 4 body segments:
-  - 🧠 Head / Neck alignment
-  - 💪 Arms / Elbow position
-  - 🏋️ Body / Core stability
-  - 🦵 Legs / Base support
+  -  Head / Neck alignment
+  -  Arms / Elbow position
+  -  Body / Core stability
+  -  Legs / Base support
 - **Live form corrections** displayed on-screen during exercise
 - **Detailed results table** after every 5-rep set with rep-by-rep breakdown
 - **Action plan & grade** (Excellent / Good / Fair / Needs Work)
