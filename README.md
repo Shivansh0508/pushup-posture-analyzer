@@ -35,9 +35,9 @@ pip install -r requirements.txt
 ```
 
 > The `requirements.txt` installs:
-> - `opencv-python` — webcam capture and frame rendering
-> - `ultralytics` — YOLOv8 pose estimation model
-> - `numpy` — angle and keypoint calculations
+> - `opencv-python` - webcam capture and frame rendering
+> - `ultralytics` - YOLOv8 pose estimation model
+> - `numpy` - angle and keypoint calculations
 
 On first run, the YOLOv8 nano-pose model (`yolov8n-pose.pt`) will be **automatically downloaded** by the `ultralytics` library (~6 MB).
 
@@ -47,8 +47,8 @@ On first run, the YOLOv8 nano-pose model (`yolov8n-pose.pt`) will be **automatic
 
 ```
 .
-├── main.py               # Entry point — webcam loop and key controls
-├── pushup_analyzer.py    # Core logic — pose analysis, scoring, results display
+├── main.py               # Entry point - webcam loop and key controls
+├── pushup_analyzer.py    # Core logic - pose analysis, scoring, results display
 ├── requirements.txt      # Python dependencies
 └── README.md
 ```
@@ -74,7 +74,7 @@ python main.py
 ## Camera Setup
 
 - Use a **side-view** angle (camera level with your body, perpendicular to direction of movement)
-- Ensure your **full body is visible** in frame — head to feet
+- Ensure your **full body is visible** in frame - head to feet
 - Good lighting improves detection accuracy
 
 ---
@@ -85,10 +85,10 @@ Each body part is scored out of **100%** per rep:
 
 | Score   | Status          |
 |---------|-----------------|
-| ≥ 90%   | ✓ Excellent     |
-| ≥ 75%   | ✓ Good          |
-| ≥ 60%   | ⚠ Needs Work    |
-| < 60%   | ✗ Poor          |
+| ≥ 90%   |  Excellent     |
+| ≥ 75%   |  Good          |
+| ≥ 60%   |  Needs Work    |
+| < 60%   |  Poor          |
 
 The **overall score** is the average of all four segment scores.
 
@@ -110,11 +110,11 @@ The **overall score** is the average of all four segment scores.
 |---|---|
 | `ERROR: Could not open webcam` | Check that your webcam is connected and not used by another app |
 | Low detection accuracy | Improve lighting; ensure full body is in frame from the side |
-| Model not found | Let the app run once — it auto-downloads `yolov8n-pose.pt` |
+| Model not found | Let the app run once - it auto-downloads `yolov8n-pose.pt` |
 | Slow FPS | Use a machine with a GPU, or switch to a lighter model like `yolov8n-pose` (already the smallest) |
 
 ---
 
 ## License
 
-MIT License — free to use and modify.
+MIT License - free to use and modify.
