@@ -117,4 +117,4 @@ The **overall score** is the average of all four segment scores.
 
 ## License
 
-MIT License - free to use and modify.
+MIT License - free to use.
