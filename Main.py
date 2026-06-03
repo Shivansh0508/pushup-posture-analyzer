@@ -58,3 +58,9 @@ def main():
             if not analyzer.feedback_mode:
                 print("\n Counter reset!\n")
                 analyzer.reset_counter()
+
+ cap.release()
+    cv2.destroyAllWindows()
+    print("\n" + "=" * 75)
+    print("Analysis complete! Keep improving your form! ")
+    print("=" * 75)
