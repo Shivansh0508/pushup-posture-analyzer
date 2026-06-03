@@ -43,3 +43,7 @@ def main():
             break
         
         frame = cv2.flip(frame, 1)
+
+        analyzed_frame, feedback, elbow_angle, body_alignment = analyzer.analyze_pushup(frame)
+        cv2.imshow('Pushup Posture Correction Tool - Live Analysis', analyzed_frame)
+        key = cv2.waitKey(10) & 0xFF
