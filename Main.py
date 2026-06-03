@@ -52,9 +52,9 @@ def main():
             break
         elif key == 13:  # Enter
             if analyzer.feedback_mode:
-                print("\n🔄 Starting new analysis session...\n")
+                print("\n Starting new analysis session...\n")
                 analyzer.reset_counter()
         elif key == ord('r') or key == ord('R'):
             if not analyzer.feedback_mode:
-                print("\n🔄 Counter reset!\n")
+                print("\n Counter reset!\n")
                 analyzer.reset_counter()
