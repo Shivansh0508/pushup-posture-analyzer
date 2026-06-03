@@ -6,3 +6,9 @@ def main():
     print(" PUSHUP POSTURE CORRECTION TOOL - Live Score Analysis")
     print("=" * 75)
     print("\nInitializing AI posture analyzer...")
+    cap = cv2.VideoCapture(0)
+    
+    if not cap.isOpened():
+        print("ERROR: Could not open webcam")
+        return
+    
