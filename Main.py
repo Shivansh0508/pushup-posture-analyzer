@@ -34,4 +34,12 @@ def main():
     print("- ENTER: New set after results")
     print("- Q: Quit")
     print("=" * 75 + "\n")
+     print("Ready to analyze your form! \n")
     
+    while cap.isOpened():
+        ret, frame = cap.read()
+        
+        if not ret:
+            break
+        
+        frame = cv2.flip(frame, 1)
