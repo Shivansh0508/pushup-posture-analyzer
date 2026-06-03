@@ -64,3 +64,7 @@ def main():
     print("\n" + "=" * 75)
     print("Analysis complete! Keep improving your form! ")
     print("=" * 75)
+
+if __name__ == "__main__":
+    main()
+ 
