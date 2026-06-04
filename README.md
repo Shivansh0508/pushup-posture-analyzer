@@ -115,6 +115,12 @@ The **overall score** is the average of all four segment scores.
 
 ---
 
+
+**Shivansh Saxena** - B.Tech Computer Science, BITS Pilani (2027)
+ 
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/shivansh-saxena-8b9880316/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black)](https://github.com/Shivansh0508)
+
 ## License
 
 MIT License - free to use.
