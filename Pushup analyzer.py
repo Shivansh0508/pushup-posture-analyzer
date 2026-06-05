@@ -61,8 +61,23 @@ if head_shoulder_x_diff > shoulder_hip_x_diff * 1.5:
         elif nose[1] > shoulder[1]:  # Head up too much
             feedback.append("Head too high - Neutral neck")
             score -= 20
-        
         if not feedback:
             feedback.append("✓ Head aligned")
-        
         return score, feedback
+
+def analyze_arm_posture(self, shoulder, elbow, wrist, elbow_angle):
+        """Analyze arm form and elbow position"""
+        feedback = []
+        score = 100
+        
+        # Check elbow angle for depth
+        if elbow_angle > 160:
+            feedback.append("✓ Arms extended")
+        elif 90 <= elbow_angle <= 110:
+            feedback.append("✓ Perfect depth")
+        elif elbow_angle < 70:
+            feedback.append("Too deep - Control!")
+            score -= 15
+        elif elbow_angle > 120:
+            feedback.append("Go lower")
+            score -= 25
