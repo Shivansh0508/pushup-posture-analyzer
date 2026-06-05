@@ -174,3 +174,22 @@ def analyze_leg_posture(self, hip, knee, ankle):
         results.append(f"{'OVERALL SCORE':<20} {avg_overall:>6.1f}%{'':>8} {get_status(avg_overall):<20}")
         results.append("="*90)
         results.append("")
+
+# Rep by rep breakdown
+        results.append("-"*90)
+        results.append("REP-BY-REP BREAKDOWN")
+        results.append("-"*90)
+        results.append(f"{'Rep':<6} {'Head':<10} {'Arms':<10} {'Body':<10} {'Legs':<10} {'Overall':<10} {'Issues':<30}")
+        results.append("-"*90)
+        
+        for i, rep in enumerate(self.rep_data, 1):
+            rep_avg = (rep['head_score'] + rep['arm_score'] + rep['body_score'] + rep['leg_score']) / 4
+            issues = ", ".join(rep['issues'][:2]) if rep['issues'] else "None"
+            results.append(
+                f"{i:<6} {rep['head_score']:>5.0f}%{'':>3} {rep['arm_score']:>5.0f}%{'':>3} "
+                f"{rep['body_score']:>5.0f}%{'':>3} {rep['leg_score']:>5.0f}%{'':>3} "
+                f"{rep_avg:>5.0f}%{'':>3} {issues:<30}"
+            )
+        
+        results.append("="*90)
+        results.append("")
