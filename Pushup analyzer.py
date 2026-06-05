@@ -37,3 +37,17 @@ def calculate_angle(self, a, b, c):
         if angle > 180.0:
             angle = 360 - angle
         return angle
+    
+def calculate_body_alignment(self, shoulder, hip, ankle):
+        """Check if body is in a straight line (plank position)"""
+        alignment_angle = self.calculate_angle(shoulder, hip, ankle)
+        return alignment_angle
+    
+    def analyze_head_posture(self, nose, shoulder, hip):
+        """Analyze head/neck alignment"""
+        feedback = []
+        score = 100
+        
+        # Check if head is too far forward or back
+        head_shoulder_x_diff = abs(nose[0] - shoulder[0])
+        shoulder_hip_x_diff = abs(shoulder[0] - hip[0])
