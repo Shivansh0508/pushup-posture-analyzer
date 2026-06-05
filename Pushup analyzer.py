@@ -135,14 +135,12 @@ def analyze_leg_posture(self, hip, knee, ankle):
         results.append("")
         results.append(f"Total Pushups Completed: {self.pushup_count}")
         results.append("")
-
         # Calculate averages
         avg_head = sum([r['head_score'] for r in self.rep_data]) / len(self.rep_data)
         avg_arm = sum([r['arm_score'] for r in self.rep_data]) / len(self.rep_data)
         avg_body = sum([r['body_score'] for r in self.rep_data]) / len(self.rep_data)
         avg_leg = sum([r['leg_score'] for r in self.rep_data]) / len(self.rep_data)
         avg_overall = (avg_head + avg_arm + avg_body + avg_leg) / 4
-        
         # Overall assessment
         results.append("-"*90)
         results.append("OVERALL PERFORMANCE SUMMARY")
@@ -155,7 +153,7 @@ def analyze_leg_posture(self, hip, knee, ankle):
             elif score >= 75: return "✓ GOOD"
             elif score >= 60: return "⚠ NEEDS WORK"
             else: return "✗ POOR"
-        
+                
         results.append(f"{'Head/Neck':<20} {avg_head:>6.1f}%{'':>8} {get_status(avg_head):<20}")
         results.append(f"{'Arms/Elbows':<20} {avg_arm:>6.1f}%{'':>8} {get_status(avg_arm):<20}")
         results.append(f"{'Body/Core':<20} {avg_body:>6.1f}%{'':>8} {get_status(avg_body):<20}")
@@ -164,8 +162,8 @@ def analyze_leg_posture(self, hip, knee, ankle):
         results.append(f"{'OVERALL SCORE':<20} {avg_overall:>6.1f}%{'':>8} {get_status(avg_overall):<20}")
         results.append("="*90)
         results.append("")
-
-# Rep by rep breakdown
+        
+        # Rep by rep breakdown
         results.append("-"*90)
         results.append("REP-BY-REP BREAKDOWN")
         results.append("-"*90)
@@ -180,6 +178,5 @@ def analyze_leg_posture(self, hip, knee, ankle):
                 f"{rep['body_score']:>5.0f}%{'':>3} {rep['leg_score']:>5.0f}%{'':>3} "
                 f"{rep_avg:>5.0f}%{'':>3} {issues:<30}"
             )
-        
         results.append("="*90)
         results.append("")
