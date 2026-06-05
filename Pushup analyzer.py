@@ -159,3 +159,18 @@ def analyze_leg_posture(self, hip, knee, ankle):
         results.append("-"*90)
         results.append(f"{'Body Part':<20} {'Average Score':<15} {'Status':<20}")
         results.append("-"*90)
+
+        def get_status(score):
+            if score >= 90: return "✓ EXCELLENT"
+            elif score >= 75: return "✓ GOOD"
+            elif score >= 60: return "⚠ NEEDS WORK"
+            else: return "✗ POOR"
+        
+        results.append(f"{'Head/Neck':<20} {avg_head:>6.1f}%{'':>8} {get_status(avg_head):<20}")
+        results.append(f"{'Arms/Elbows':<20} {avg_arm:>6.1f}%{'':>8} {get_status(avg_arm):<20}")
+        results.append(f"{'Body/Core':<20} {avg_body:>6.1f}%{'':>8} {get_status(avg_body):<20}")
+        results.append(f"{'Legs/Stability':<20} {avg_leg:>6.1f}%{'':>8} {get_status(avg_leg):<20}")
+        results.append("-"*90)
+        results.append(f"{'OVERALL SCORE':<20} {avg_overall:>6.1f}%{'':>8} {get_status(avg_overall):<20}")
+        results.append("="*90)
+        results.append("")
