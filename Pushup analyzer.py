@@ -51,3 +51,18 @@ def calculate_body_alignment(self, shoulder, hip, ankle):
         # Check if head is too far forward or back
         head_shoulder_x_diff = abs(nose[0] - shoulder[0])
         shoulder_hip_x_diff = abs(shoulder[0] - hip[0])
+
+if head_shoulder_x_diff > shoulder_hip_x_diff * 1.5:
+            feedback.append("Head too far forward")
+            score -= 30
+        elif nose[1] < shoulder[1] - 50:  # Head dropped down
+            feedback.append("Head dropped - Look forward")
+            score -= 25
+        elif nose[1] > shoulder[1]:  # Head up too much
+            feedback.append("Head too high - Neutral neck")
+            score -= 20
+        
+        if not feedback:
+            feedback.append("✓ Head aligned")
+        
+        return score, feedback
