@@ -81,3 +81,16 @@ def analyze_arm_posture(self, shoulder, elbow, wrist, elbow_angle):
         elif elbow_angle > 120:
             feedback.append("Go lower")
             score -= 25
+
+        # Check elbow flare (width)
+        shoulder_elbow_y = abs(shoulder[1] - elbow[1])
+        shoulder_elbow_x = abs(shoulder[0] - elbow[0])
+        if shoulder_elbow_x > shoulder_elbow_y * 0.8:
+            feedback.append("Elbows flaring wide")
+            score -= 30
+        return score, feedback
+    
+    def analyze_body_posture(self, shoulder, hip, knee, body_alignment):
+        """Analyze core/body alignment"""
+        feedback = []
+        score = 100
