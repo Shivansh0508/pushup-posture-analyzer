@@ -94,3 +94,20 @@ def analyze_arm_posture(self, shoulder, elbow, wrist, elbow_angle):
         """Analyze core/body alignment"""
         feedback = []
         score = 100
+
+        # Check body straight line
+        if body_alignment < 160:
+            feedback.append("⚠ Hips sagging")
+            score -= 40
+        elif body_alignment < 170:
+            feedback.append("Slight hip sag")
+            score -= 20
+        elif body_alignment > 190:
+            feedback.append("⚠ Hips too high")
+            score -= 35
+        elif body_alignment > 185:
+            feedback.append("Hips slightly high")
+            score -= 15
+        else:
+            feedback.append("✓ Body straight")
+        return score, feedback
