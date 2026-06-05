@@ -145,3 +145,17 @@ def analyze_leg_posture(self, hip, knee, ankle):
         results.append("")
         results.append(f"Total Pushups Completed: {self.pushup_count}")
         results.append("")
+
+        # Calculate averages
+        avg_head = sum([r['head_score'] for r in self.rep_data]) / len(self.rep_data)
+        avg_arm = sum([r['arm_score'] for r in self.rep_data]) / len(self.rep_data)
+        avg_body = sum([r['body_score'] for r in self.rep_data]) / len(self.rep_data)
+        avg_leg = sum([r['leg_score'] for r in self.rep_data]) / len(self.rep_data)
+        avg_overall = (avg_head + avg_arm + avg_body + avg_leg) / 4
+        
+        # Overall assessment
+        results.append("-"*90)
+        results.append("OVERALL PERFORMANCE SUMMARY")
+        results.append("-"*90)
+        results.append(f"{'Body Part':<20} {'Average Score':<15} {'Status':<20}")
+        results.append("-"*90)
