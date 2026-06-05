@@ -111,3 +111,20 @@ def analyze_arm_posture(self, shoulder, elbow, wrist, elbow_angle):
         else:
             feedback.append("✓ Body straight")
         return score, feedback
+
+def analyze_leg_posture(self, hip, knee, ankle):
+        """Analyze leg position and stability"""
+        feedback = []
+        score = 100
+        
+        # Check leg alignment
+        leg_angle = self.calculate_angle(hip, knee, ankle)
+        
+        if leg_angle < 165:
+            feedback.append("Knees bent - Straighten")
+            score -= 25
+        elif leg_angle < 175:
+            feedback.append("Slight knee bend")
+            score -= 10
+        else:
+            feedback.append("✓ Legs straight")
