@@ -44,7 +44,6 @@ def calculate_body_alignment(self, shoulder, hip, ankle):
         """Analyze head/neck alignment"""
         feedback = []
         score = 100
-        
         # Check if head is too far forward or back
         head_shoulder_x_diff = abs(nose[0] - shoulder[0])
         shoulder_hip_x_diff = abs(shoulder[0] - hip[0])
@@ -66,7 +65,6 @@ def analyze_arm_posture(self, shoulder, elbow, wrist, elbow_angle):
         """Analyze arm form and elbow position"""
         feedback = []
         score = 100
-        
         # Check elbow angle for depth
         if elbow_angle > 160:
             feedback.append("✓ Arms extended")
@@ -78,7 +76,6 @@ def analyze_arm_posture(self, shoulder, elbow, wrist, elbow_angle):
         elif elbow_angle > 120:
             feedback.append("Go lower")
             score -= 25
-
         # Check elbow flare (width)
         shoulder_elbow_y = abs(shoulder[1] - elbow[1])
         shoulder_elbow_x = abs(shoulder[0] - elbow[0])
@@ -91,7 +88,6 @@ def analyze_arm_posture(self, shoulder, elbow, wrist, elbow_angle):
         """Analyze core/body alignment"""
         feedback = []
         score = 100
-
         # Check body straight line
         if body_alignment < 160:
             feedback.append("⚠ Hips sagging")
@@ -113,10 +109,8 @@ def analyze_leg_posture(self, hip, knee, ankle):
         """Analyze leg position and stability"""
         feedback = []
         score = 100
-        
         # Check leg alignment
         leg_angle = self.calculate_angle(hip, knee, ankle)
-        
         if leg_angle < 165:
             feedback.append("Knees bent - Straighten")
             score -= 25
@@ -125,8 +119,7 @@ def analyze_leg_posture(self, hip, knee, ankle):
             score -= 10
         else:
             feedback.append("✓ Legs straight")
-
-# Check if feet are stable (not lifting)
+        # Check if feet are stable (not lifting)
         knee_ankle_y = abs(knee[1] - ankle[1])
         if knee_ankle_y < 100:  # Too close, feet might be lifting
             feedback.append("Keep feet grounded")
