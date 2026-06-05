@@ -178,5 +178,6 @@ def analyze_leg_posture(self, hip, knee, ankle):
                 f"{rep['body_score']:>5.0f}%{'':>3} {rep['leg_score']:>5.0f}%{'':>3} "
                 f"{rep_avg:>5.0f}%{'':>3} {issues:<30}"
             )
+            
         results.append("="*90)
         results.append("")
