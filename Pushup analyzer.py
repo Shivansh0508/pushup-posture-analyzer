@@ -128,3 +128,20 @@ def analyze_leg_posture(self, hip, knee, ankle):
             score -= 10
         else:
             feedback.append("✓ Legs straight")
+
+# Check if feet are stable (not lifting)
+        knee_ankle_y = abs(knee[1] - ankle[1])
+        if knee_ankle_y < 100:  # Too close, feet might be lifting
+            feedback.append("Keep feet grounded")
+            score -= 15
+        return score, feedback
+    
+    def generate_results_table(self):
+        """Generate detailed results table after 5 pushups"""
+        results = []
+        results.append("\n" + "="*90)
+        results.append(" " * 25 + "PUSHUP ANALYSIS - DETAILED RESULTS")
+        results.append("="*90)
+        results.append("")
+        results.append(f"Total Pushups Completed: {self.pushup_count}")
+        results.append("")
