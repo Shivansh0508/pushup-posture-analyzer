@@ -272,3 +272,18 @@ def analyze_leg_posture(self, hip, knee, ankle):
         
         feedback = "Position yourself in frame (side view)"
         form_issues = []
+          elbow_angle = 0
+        shoulder_angle = 0
+        body_alignment = 0
+        color = (255, 165, 0)
+        
+        # Reset live scores
+        self.head_score = 0
+        self.arm_score = 0
+        self.body_score = 0
+        self.leg_score = 0
+        
+        results = self.model(image, verbose=False)
+        
+        if results and len(results[0].keypoints) > 0:
+            keypoints = results[0].keypoints.xy[0].cpu().numpy()
