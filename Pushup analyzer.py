@@ -332,4 +332,26 @@ def analyze_leg_posture(self, hip, knee, ankle):
                                 'body_score': self.body_score,
                                 'leg_score': self.leg_score,
                                 'issues': self.current_rep_feedback.copy()
+                                
                             })
+                            
+                            # Check if set complete
+                            if self.pushup_count >= self.set_target:
+                                self.feedback_mode = True
+                            
+                            self.position = "up"
+                            self.current_rep_feedback = []
+                        feedback = "Ready position"
+                        color = (255, 255, 0)
+                        
+                    elif 70 <= elbow_angle <= 100:
+                        position = "DOWN"
+                        self.position = "down"
+                        self.current_rep_feedback = form_issues.copy()
+                        
+                        if form_score >= 85:
+                            feedback = "Perfect depth & form!"
+                            color = (0, 255, 0)
+                        else:
+                            feedback = "Depth OK - Fix: " + (form_issues[0] if form_issues else "")
+                            color = (0, 165, 255)
