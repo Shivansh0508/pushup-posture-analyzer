@@ -427,3 +427,17 @@ def analyze_leg_posture(self, hip, knee, ankle):
                         cv2.putText(annotated_frame, "FORM CORRECTIONS:", 
                                    (20, issue_y + 30), cv2.FONT_HERSHEY_SIMPLEX, 
                                    0.7, (255, 255, 255), 2, cv2.LINE_AA)
+                         for i, issue in enumerate(form_issues[:2]):
+                            cv2.putText(annotated_frame, f"• {issue}", 
+                                       (30, issue_y + 65 + i*30), cv2.FONT_HERSHEY_SIMPLEX, 
+                                       0.6, (255, 150, 100), 1, cv2.LINE_AA)
+                    
+                    # Main feedback
+                    cv2.rectangle(annotated_frame, (0, h-60), (w, h), (0, 0, 0), -1)
+                    cv2.putText(annotated_frame, feedback, 
+                               (20, h-20), cv2.FONT_HERSHEY_SIMPLEX, 
+                               0.85, color, 2, cv2.LINE_AA)
+                    
+                    return annotated_frame, feedback, elbow_angle, body_alignment
+        
+        return image, feedback, elbow_angle, body_alignment
