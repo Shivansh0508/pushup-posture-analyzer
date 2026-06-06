@@ -441,3 +441,13 @@ def analyze_leg_posture(self, hip, knee, ankle):
                     return annotated_frame, feedback, elbow_angle, body_alignment
         
         return image, feedback, elbow_angle, body_alignment
+
+def show_results_table(self, image):
+        """Display results table"""
+        h, w = image.shape[:2]
+        results_screen = np.zeros((h, w, 3), dtype=np.uint8)
+        
+        results_text = self.generate_results_table()
+        lines = results_text.split('\n')
+        
+        y_position = 15
