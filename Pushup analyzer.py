@@ -473,7 +473,7 @@ def show_results_table(self, image):
             else:
                 color, thickness, font_scale = (255, 255, 255), 1, 0.48
 
-                cv2.putText(results_screen, line, 
+             cv2.putText(results_screen, line, 
                        (10, y_position), cv2.FONT_HERSHEY_SIMPLEX, 
                        font_scale, color, thickness, cv2.LINE_AA)
             y_position += 19
