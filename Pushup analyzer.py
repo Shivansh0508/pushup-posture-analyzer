@@ -197,4 +197,25 @@ def analyze_leg_posture(self, hip, knee, ankle):
         for issue in all_issues:
             issue_counts[issue] = issue_counts.get(issue, 0) + 1
 
-
+        if avg_head < 80:
+            results.append("🔴 HEAD/NECK POSTURE:")
+            if "Head too far forward" in issue_counts:
+                results.append("   • Keep head in neutral position aligned with spine")
+                results.append("   • Look at floor 3-4 feet in front of you")
+            if "Head dropped" in issue_counts:
+                results.append("   • Don't let head drop down")
+                results.append("   • Maintain cervical spine alignment")
+            results.append("")
+        
+        if avg_arm < 80:
+            results.append("🔴 ARM/ELBOW FORM:")
+            if "Elbows flaring" in issue_counts:
+                results.append("   • Keep elbows at 45° angle from body, not 90°")
+                results.append("   • Imagine squeezing something in your armpits")
+            if "Go lower" in issue_counts:
+                results.append("   • Lower chest until elbows reach 90 degrees")
+                results.append("   • Full range of motion is important")
+            if "Too deep" in issue_counts:
+                results.append("   • Control your descent - don't collapse")
+                results.append("   • Stop when elbows reach 90 degrees")
+            results.append("")
