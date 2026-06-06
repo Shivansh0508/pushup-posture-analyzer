@@ -392,3 +392,19 @@ def analyze_leg_posture(self, hip, knee, ankle):
                                0.65, head_color, 2, cv2.LINE_AA)
                     
                     y_pos += 30
+
+                     # Arm score
+                    arm_color = (0, 255, 0) if self.arm_score >= 80 else (0, 165, 255) if self.arm_score >= 60 else (0, 0, 255)
+                    cv2.putText(annotated_frame, f'Arms/Elbows: {int(self.arm_score)}%', 
+                               (30, y_pos), cv2.FONT_HERSHEY_SIMPLEX, 
+                               0.65, arm_color, 2, cv2.LINE_AA)
+                    
+                    y_pos += 30
+                    
+                    # Body score
+                    body_color = (0, 255, 0) if self.body_score >= 80 else (0, 165, 255) if self.body_score >= 60 else (0, 0, 255)
+                    cv2.putText(annotated_frame, f'Body/Core: {int(self.body_score)}%', 
+                               (30, y_pos), cv2.FONT_HERSHEY_SIMPLEX, 
+                               0.65, body_color, 2, cv2.LINE_AA)
+                    
+                    y_pos += 30
