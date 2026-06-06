@@ -219,3 +219,24 @@ def analyze_leg_posture(self, hip, knee, ankle):
                 results.append("   • Control your descent - don't collapse")
                 results.append("   • Stop when elbows reach 90 degrees")
             results.append("")
+             
+        if avg_body < 80:
+            results.append("🔴 BODY/CORE ALIGNMENT:")
+            if "Hips sagging" in issue_counts:
+                results.append("   • CRITICAL: Engage your core throughout movement")
+                results.append("   • Squeeze glutes and pull belly button to spine")
+                results.append("   • Practice plank holds: 3 sets x 30-60 seconds")
+            if "Hips too high" in issue_counts:
+                results.append("   • Lower hips to create straight line from head to heels")
+                results.append("   • Don't pike up into downward dog position")
+            results.append("")
+        
+        if avg_leg < 80:
+            results.append("🔴 LEG POSITION:")
+            if "Knees bent" in issue_counts:
+                results.append("   • Keep legs fully extended and locked")
+                results.append("   • Squeeze quads to maintain tension")
+            if "Keep feet grounded" in issue_counts:
+                results.append("   • Keep toes firmly planted throughout")
+                results.append("   • Don't lift feet or lose base of support")
+            results.append("")
