@@ -181,3 +181,20 @@ def analyze_leg_posture(self, hip, knee, ankle):
             
         results.append("="*90)
         results.append("")
+        
+         # Specific feedback and recommendations
+        results.append("-"*90)
+        results.append("DETAILED FEEDBACK & RECOMMENDATIONS")
+        results.append("-"*90)
+        results.append("")
+        
+        # Collect all issues
+        all_issues = []
+        for rep in self.rep_data:
+            all_issues.extend(rep['issues'])
+        
+        issue_counts = {}
+        for issue in all_issues:
+            issue_counts[issue] = issue_counts.get(issue, 0) + 1
+
+
