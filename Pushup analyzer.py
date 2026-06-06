@@ -408,3 +408,22 @@ def analyze_leg_posture(self, hip, knee, ankle):
                                0.65, body_color, 2, cv2.LINE_AA)
                     
                     y_pos += 30
+                    # Leg score
+                    leg_color = (0, 255, 0) if self.leg_score >= 80 else (0, 165, 255) if self.leg_score >= 60 else (0, 0, 255)
+                    cv2.putText(annotated_frame, f'Legs/Stability: {int(self.leg_score)}%', 
+                               (30, y_pos), cv2.FONT_HERSHEY_SIMPLEX, 
+                               0.65, leg_color, 2, cv2.LINE_AA)
+                    
+                    # Overall score on right
+                    score_color = (0, 255, 0) if form_score >= 80 else (0, 165, 255) if form_score >= 60 else (0, 0, 255)
+                    cv2.putText(annotated_frame, f'Overall: {int(form_score)}%', 
+                               (w - 250, 45), cv2.FONT_HERSHEY_SIMPLEX, 
+                               1.0, score_color, 2, cv2.LINE_AA)
+                    
+                    # Current issues display
+                    if form_issues:
+                        issue_y = h - 140
+                        cv2.rectangle(annotated_frame, (0, issue_y), (w, h-60), (40, 0, 0), -1)
+                        cv2.putText(annotated_frame, "FORM CORRECTIONS:", 
+                                   (20, issue_y + 30), cv2.FONT_HERSHEY_SIMPLEX, 
+                                   0.7, (255, 255, 255), 2, cv2.LINE_AA)
