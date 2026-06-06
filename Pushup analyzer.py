@@ -355,3 +355,25 @@ def analyze_leg_posture(self, hip, knee, ankle):
                         else:
                             feedback = "Depth OK - Fix: " + (form_issues[0] if form_issues else "")
                             color = (0, 165, 255)
+                            elif elbow_angle > 100:
+                        position = "GOING DOWN"
+                        feedback = "Go lower for full pushup"
+                        color = (255, 200, 0)
+                    else:
+                        position = "TOO LOW"
+                        feedback = "Too deep - Maintain control"
+                        color = (0, 165, 255)
+                    
+                    # Render frame
+                    annotated_frame = results[0].plot()
+                    h, w = annotated_frame.shape[:2]
+                    
+                    # Top info panel
+                    overlay = annotated_frame.copy()
+                    cv2.rectangle(overlay, (0, 0), (w, 280), (0, 0, 0), -1)
+                    cv2.addWeighted(overlay, 0.7, annotated_frame, 0.3, 0, annotated_frame)
+                    
+                    # Counter
+                    cv2.putText(annotated_frame, f'PUSHUPS: {self.pushup_count}/{self.set_target}', 
+                               (20, 45), cv2.FONT_HERSHEY_SIMPLEX, 
+                               1.3, (0, 255, 255), 3, cv2.LINE_AA)
