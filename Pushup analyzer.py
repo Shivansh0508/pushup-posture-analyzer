@@ -316,4 +316,20 @@ def analyze_leg_posture(self, hip, knee, ankle):
                             form_issues.append(fb)
                     
                     # Overall form score
-                    form_score = (self.head_score + self.arm_score + self.body_score + self.leg_score) / 
+                    form_score = (self.head_score + self.arm_score + self.body_score + self.leg_score) / 4
+                    
+                    # Position tracking
+                    if elbow_angle > 160:
+                        position = "UP"
+                        if self.position == "down":
+                            # Count rep and store data
+                            self.pushup_count += 1
+                            
+                            self.rep_data.append({
+                                'rep_num': self.pushup_count,
+                                'head_score': self.head_score,
+                                'arm_score': self.arm_score,
+                                'body_score': self.body_score,
+                                'leg_score': self.leg_score,
+                                'issues': self.current_rep_feedback.copy()
+                            })
