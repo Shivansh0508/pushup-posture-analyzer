@@ -377,3 +377,18 @@ def analyze_leg_posture(self, hip, knee, ankle):
                     cv2.putText(annotated_frame, f'PUSHUPS: {self.pushup_count}/{self.set_target}', 
                                (20, 45), cv2.FONT_HERSHEY_SIMPLEX, 
                                1.3, (0, 255, 255), 3, cv2.LINE_AA)
+                    # Live Posture Scores
+                    y_pos = 95
+                    cv2.putText(annotated_frame, "LIVE POSTURE SCORES:", 
+                               (20, y_pos), cv2.FONT_HERSHEY_SIMPLEX, 
+                               0.7, (200, 200, 200), 2, cv2.LINE_AA)
+                    
+                    y_pos += 35
+                    
+                    # Head score
+                    head_color = (0, 255, 0) if self.head_score >= 80 else (0, 165, 255) if self.head_score >= 60 else (0, 0, 255)
+                    cv2.putText(annotated_frame, f'Head/Neck: {int(self.head_score)}%', 
+                               (30, y_pos), cv2.FONT_HERSHEY_SIMPLEX, 
+                               0.65, head_color, 2, cv2.LINE_AA)
+                    
+                    y_pos += 30
