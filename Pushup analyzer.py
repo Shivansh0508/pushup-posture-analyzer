@@ -287,3 +287,19 @@ def analyze_leg_posture(self, hip, knee, ankle):
         
         if results and len(results[0].keypoints) > 0:
             keypoints = results[0].keypoints.xy[0].cpu().numpy()
+             if len(keypoints) >= 16:
+                # Extract keypoints
+                nose = keypoints[0]
+                shoulder = keypoints[5]
+                elbow = keypoints[7]
+                wrist = keypoints[9]
+                hip = keypoints[11]
+                knee = keypoints[13]
+                ankle = keypoints[15]
+                
+                if all(shoulder) and all(elbow) and all(wrist) and all(hip) and all(ankle):
+                    
+                    # Calculate angles
+                    elbow_angle = self.calculate_angle(shoulder, elbow, wrist)
+                    shoulder_angle = self.calculate_angle(elbow, shoulder, hip)
+                    body_alignment = self.calculate_body_alignment(shoulder, hip, ankle)
