@@ -240,3 +240,21 @@ def analyze_leg_posture(self, hip, knee, ankle):
                 results.append("   • Keep toes firmly planted throughout")
                 results.append("   • Don't lift feet or lose base of support")
             results.append("")
+             # Overall grade and action plan
+        results.append("-"*90)
+        results.append("FINAL GRADE & ACTION PLAN")
+        results.append("-"*90)
+        results.append("")
+        
+        if avg_overall >= 90:
+            results.append("⭐⭐⭐ EXCELLENT - Your form is outstanding!")
+            results.append("Action: Try progressions like diamond pushups or tempo variations")
+        elif avg_overall >= 75:
+            results.append("⭐⭐ GOOD - Solid performance with room for refinement")
+            results.append("Action: Focus on weak points identified above")
+        elif avg_overall >= 60:
+            results.append("⭐ FAIR - You need consistent practice")
+            results.append("Action: Do 3 sets of 5 pushups daily, focusing on form")
+        else:
+            results.append("⚠ NEEDS SIGNIFICANT WORK")
+            results.append("Action: Start with incline pushups and build strength")
