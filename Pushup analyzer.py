@@ -303,3 +303,17 @@ def analyze_leg_posture(self, hip, knee, ankle):
                     elbow_angle = self.calculate_angle(shoulder, elbow, wrist)
                     shoulder_angle = self.calculate_angle(elbow, shoulder, hip)
                     body_alignment = self.calculate_body_alignment(shoulder, hip, ankle)
+                    
+                     # Analyze each body part
+                    self.head_score, head_feedback = self.analyze_head_posture(nose, shoulder, hip)
+                    self.arm_score, arm_feedback = self.analyze_arm_posture(shoulder, elbow, wrist, elbow_angle)
+                    self.body_score, body_feedback = self.analyze_body_posture(shoulder, hip, knee, body_alignment)
+                    self.leg_score, leg_feedback = self.analyze_leg_posture(hip, knee, ankle)
+                    
+                    # Collect issues
+                    for fb in head_feedback + arm_feedback + body_feedback + leg_feedback:
+                        if not fb.startswith("✓"):
+                            form_issues.append(fb)
+                    
+                    # Overall form score
+                    form_score = (self.head_score + self.arm_score + self.body_score + self.leg_score) / 
