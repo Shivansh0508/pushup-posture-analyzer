@@ -258,3 +258,17 @@ def analyze_leg_posture(self, hip, knee, ankle):
         else:
             results.append("⚠ NEEDS SIGNIFICANT WORK")
             results.append("Action: Start with incline pushups and build strength")
+            results.append("")
+        results.append("="*90)
+        results.append(" " * 30 + "Press ENTER to try again | Press Q to quit")
+        results.append("="*90)
+        
+        return "\n".join(results)
+    
+    def analyze_pushup(self, image):
+        """Analyze pushup form with live posture scores"""
+        if self.feedback_mode:
+            return self.show_results_table(image)
+        
+        feedback = "Position yourself in frame (side view)"
+        form_issues = []
