@@ -482,3 +482,13 @@ def show_results_table(self, image):
                 break
         
         return results_screen, "Results Table", 0, 0
+
+ def reset_counter(self):
+        """Reset for new set"""
+        self.pushup_count = 0
+        self.position = "up"
+        self.rep_data = []
+        self.current_rep_feedback = []
+        self.analyzing = True
+        self.feedback_mode = False
+ 
