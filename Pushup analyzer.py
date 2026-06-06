@@ -451,3 +451,24 @@ def show_results_table(self, image):
         lines = results_text.split('\n')
         
         y_position = 15
+
+ for line in lines:
+            # Color coding
+            if '=' in line:
+                color, thickness, font_scale = (100, 100, 100), 1, 0.45
+            elif 'DETAILED RESULTS' in line or 'SUMMARY' in line or 'BREAKDOWN' in line:
+                color, thickness, font_scale = (0, 255, 255), 2, 0.55
+            elif '✓ EXCELLENT' in line or '⭐⭐⭐' in line:
+                color, thickness, font_scale = (0, 255, 0), 1, 0.5
+            elif '✓ GOOD' in line or '⭐⭐' in line:
+                color, thickness, font_scale = (100, 255, 100), 1, 0.5
+            elif '⚠' in line or '⭐' in line or 'FAIR' in line:
+                color, thickness, font_scale = (0, 165, 255), 1, 0.5
+            elif '✗' in line or 'POOR' in line or '🔴' in line:
+                color, thickness, font_scale = (0, 0, 255), 1, 0.5
+            elif line.startswith('   •') or line.startswith('      '):
+                color, thickness, font_scale = (180, 180, 180), 1, 0.43
+            elif '-' in line:
+                color, thickness, font_scale = (80, 80, 80), 1, 0.42
+            else:
+                color, thickness, font_scale = (255, 255, 255), 1, 0.48
